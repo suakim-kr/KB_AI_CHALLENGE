@@ -1,0 +1,11 @@
+# E:\KB_AI_CHALLENGE\prompts\__init__.py
+from .rag_prompts import RAG_SYSTEM, RAG_DETAIL
+from .t2sql_prompts import (
+    ROUTING_PROMPT,
+    POLICIES_SCHEMA_DOC,
+    PRODUCT_SCHEMA_DOC,
+    POLICY_SQL_PROMPT,
+    PRODUCT_SQL_PROMPT,
+    SINGLE_SUMMARY_PROMPT,
+    BOTH_SUMMARY_PROMPT,
+)

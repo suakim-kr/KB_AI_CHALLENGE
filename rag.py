@@ -1,8 +1,9 @@
 # ai_agent/rag.py
 # -*- coding: utf-8 -*-
+import os
 import re
 from datetime import datetime
-from typing import Dict, Any, List, Tuple, Optional
+from typing import Dict, Any, List, Tuple, Optional, Union
 
 import numpy as np
 import pandas as pd
@@ -15,11 +16,12 @@ from pathlib import Path
 from .config import GOOGLE_API_KEY, GEN_MODEL, POLICY_CSV, LOCAL_TZ, RAG_TOP_K_DEFAULT
 from .prompts import RAG_SYSTEM, RAG_DETAIL
 
+
 from dotenv import load_dotenv
 load_dotenv(override=True)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-POLICY_CSV = os.path.join(BASE_PATH, "data", "930_preprocessed.csv")
+POLICY_CSV = os.path.join(BASE_DIR, "data", "930_preprocessed.csv")
 
 class RAGRunner:
     """
@@ -43,8 +45,10 @@ class RAGRunner:
     }
 
     # 1) 프롬프트 외부 파일 로딩
-    SYS_PROMPT: str = load_rag_prompt()
-    DETAIL_PROMPT: str = load_rag_detail_prompt()
+    SYS_PROMPT: str = RAG_SYSTEM
+    DETAIL_PROMPT: str = RAG_DETAIL
+
+
 
     def __init__(
         self,
@@ -352,3 +356,15 @@ class RAGRunner:
                 "agency": self.df.loc[i, "agency"],
             })
         return out
+    
+# ---------- 테스트용 ---------- #
+'''if __name__ == "__main__":
+    runner = RAGRunner()
+    while True:
+        q = input("> ").strip()
+        res = runner.answer(q)
+        print(res["reply"])
+        # 종료 문구 처리 (파일 내 RESET_PHRASES와 일치)
+        if any(p in q for p in ("상담 종료", "종료", "그만", "새로 시작", "초기화")):
+            break
+'''
