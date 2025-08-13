@@ -78,9 +78,9 @@ POLICY_SQL_PROMPT = ChatPromptTemplate.from_template(
     - 개요는 business_overview를 참고하여 상세하면서도 명료하게 작성해주세요.
     - 사용자의 질의에서 키워드를 뽑은 후 필터링 조건 걸기 (예: 청년 창업인 -> 키워드: 청년, 창업, **키워드는 절대 수치가 될 수 없음**)
     - 태그나 제목에서 조건 필터링:
-      예: WHERE (tag ILIKE '%청년%' OR title ILIKE '%청년%')
-    - 여러 키워드면 각 키워드를 (tag ILIKE '%키워드%' OR title ILIKE '%키워드%') 로 만들고 AND로 연결
-    - region은 부분일치: WHERE region ILIKE '%지역명%'
+      예: WHERE (tag LIKE '%청년%' OR title LIKE '%청년%')
+    - 여러 키워드면 각 키워드를 (tag LIKE '%키워드%' OR title LIKE '%키워드%') 로 만들고 AND로 연결
+    - region은 부분일치: WHERE region LIKE '%지역명%'
     - 한국어 금액(예: 500만원, 1.2억)은 각각 5000000, 120000000으로 해석해 amount 비교식에 사용
     - 기본적으로 `ORDER BY deadline ASC` 순으로 정렬하고 금액 조건이 있으면 amount로 정렬하세요.
     - 결과는 최대 3개로 제한하세요 (`LIMIT 3`).
@@ -101,11 +101,11 @@ PRODUCT_SQL_PROMPT = ChatPromptTemplate.from_template(
     - 반드시 `SELECT` 쿼리만 생성하고, `FROM product`만 사용하세요.
     - 기본적으로 `product_name, product_overview, eligibility, max_support_amount, application_agency` 컬럼을 포함하세요.
     - 사용자의 질의에서 키워드를 뽑은 후 필터링 조건 걸기 (예: 청년 창업인 -> 키워드: 청년, 창업, **키워드는 절대 수치가 될 수 없음**)
-    - 여러 키워드면 각 키워드를 (title ILIKE '%키워드%') 로 만들고 AND로 연결
+    - 여러 키워드면 각 키워드를 (title LIKE '%키워드%') 로 만들고 AND로 연결
     - 제목에서 조건 필터링:
-      예: WHERE (tag ILIKE '%청년%' OR title ILIKE '%청년%')
-    - 여러 키워드면 각 키워드를 (tag ILIKE '%키워드%') OR (title ILIKE '%키워드%') 로 만들고 AND로 연결
-    - region은 부분일치: WHERE region ILIKE '%지역명%'
+      예: WHERE (tag LIKE '%청년%' OR title LIKE '%청년%')
+    - 여러 키워드면 각 키워드를 (tag LIKE '%키워드%') OR (title LIKE '%키워드%') 로 만들고 AND로 연결
+    - region은 부분일치: WHERE region LIKE '%지역명%'
     - 자금용도 (fund_purpose) 필터링 또는 질문 시 제공
     - 보증료율 (gurantee_fee_min, gurantee_fee_max), 보증기간(gurantee_period) 필터링 또는 질문 시 제공
     - 한국어 금액(예: 500만원, 1.2억)은 각각 5000000, 120000000으로 해석해 amount 비교식에 사용

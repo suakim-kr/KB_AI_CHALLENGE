@@ -211,3 +211,35 @@ def send_policy_email_oneoff_html(
         smtp_host=st_host or None,     # None이면 env 기본값 사용
         smtp_port=st_port or None,
     )
+
+# if __name__ == "__main__":
+#     # ==== 테스트 실행 ====
+#     RECEIVER_EMAIL = "kimchaehyoung@gmail.com"  # 하드코딩
+
+#     # 예시 정책 데이터 (실제는 DB나 CSV에서 읽어오는 dict)
+#     test_policy = {'index': 4,
+#                    'title': '[경기] 2025년 팹리스 수요연계 양산지원 사업 양산성능평가 신규지원 대상 과제 공고',
+#                    'region': '경기도',
+#                    'amount': 300000000.0,
+#                    'deadline': '2025-08-22',
+#                    'link': 'https://mybiz.pay.naver.com/subvention/detail/bizInfo_PBLN_000000000113053',
+#                    'agency': '차세대융합기술연구원',
+#                    'business_overview': '경기도 시스템반도체 산업의 경쟁력 강화를 위해, 팹리스 기업의 수요처 연계 양산성능평가를 지원함으로써 신속한 국내 공급망 확보를 도모하고자 합니다. 이에 따라 「2025년 팹리스 수요연계 양산성능평가 지원사업」의 모집 계획을 다음과 같이 공고하오니, 사업 참여를 희망하는 도내 기업 및 기관은 절차에 따라 신청하여 주시기 바랍니다.',
+#                    'eligibility_content': 'ㅇ 지원예산 : 과제당 3억원/년 내외 ㅇ 지원분야 - 팹리스 양산단계 핵심기술 분야 * 신청 시 기술 명기 및 분야명(소분류 등급) 기재 ㅇ 과제유형 - 양산성능평가 지원 (평가를 통해 최대 9개월 지원 예정) (자유 공모) * 팹리스 상용화 제품의 수요기업 연계를 통한 양산',
+#                    'application_method': 'ㅇ 제출방법 : 전자문서(파일 1개로 압축, 제출서류_ㅇㅇㅇ 기관명) * 접수는 마감 시각 내 E-mail 도착해야 함(연구개발계획서 및 구비서류 전체) * 마감 시각 이후에 도착은 접수되지 않음 ㅇ 제 출 처 - 온라인 접수 : sshfish85@snu.ac.kr ㅇ 문 의 처 : 차세대융합기술연구원 경기도반도체혁신센터',
+#                    'contact_info': '차세대융합기술연구원\n\n경기도반도체혁신센터\n\n031-888–9110\n\naict.snu.ac.kr',
+#                    'source': '기업마당',
+#                    'org_dept': '차세대융합기술연구원 경기도반도체혁신센터',
+#                    'phone': '031-888–9110',
+#                    'url': 'aict.snu.ac.kr'}
+
+#     try:
+#         send_policy_email_oneoff_html(
+#             to_addr=RECEIVER_EMAIL,
+#             policy=test_policy,
+#             sender_email=SENDER_EMAIL,
+#             app_password=APP_PASSWORD
+#         )
+#         print(f"✅ 메일 발송 완료 → {RECEIVER_EMAIL}")
+#     except Exception as e:
+#         print(f"❌ 메일 발송 실패: {e}")
