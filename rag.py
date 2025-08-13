@@ -15,6 +15,9 @@ from pathlib import Path
 from .config import GOOGLE_API_KEY, GEN_MODEL, POLICY_CSV, LOCAL_TZ, RAG_TOP_K_DEFAULT
 from .prompts import RAG_SYSTEM, RAG_DETAIL
 
+from dotenv import load_dotenv
+load_dotenv(override=True)
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 POLICY_CSV = os.path.join(BASE_PATH, "data", "930_preprocessed.csv")
 

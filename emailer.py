@@ -14,6 +14,9 @@ from datetime import datetime
 from typing import Mapping, Any, Optional, Tuple
 from email.mime.text import MIMEText
 
+from dotenv import load_dotenv
+load_dotenv(override=True)
+
 # ---- SMTP 기본 설정 (환경변수) ----
 SMTP_HOST = os.getenv("SMTP_HOST", "smtp.gmail.com")
 SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))

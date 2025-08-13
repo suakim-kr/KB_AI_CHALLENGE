@@ -18,6 +18,10 @@ from langchain_core.output_parsers.string import StrOutputParser
 from langchain_community.utilities import SQLDatabase
 from langgraph.graph import StateGraph, END
 from prompts.t2sql_prompts import (ROUTING_PROMPT, POLICIES_SCHEMA_DOC, PRODUCT_SCHEMA_DOC, POLICY_SQL_PROMPT, PRODUCT_SQL_PROMPT, SINGLE_SUMMARY_PROMPT, BOTH_SUMMARY_PROMPT)
+
+from dotenv import load_dotenv
+load_dotenv(override=True)
+
 # =========================
 # 1) 환경 설정
 # =========================
